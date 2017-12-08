@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .box {
+            width: 120px;
+            margin: 100px auto;
+        }
+
+        .t {
+            width: 120px;
+            height: 150px;
+        }
+
+        span {
+            display: block;
+            float: left;
+            height: 30px;
+            width: 30px;
+            text-align: center;
+            border: 1px solid rgb(161, 159, 159);
+            line-height: 30px;
+            border-radius: 4px;
+            margin: 0 4px 4px 0;
+        }
+
+        span:hover {
+            color: white;
+            background: red;
+        }
+
+        .b {
+            height: 30px;
+            width: 102px;
+            text-align: center;
+            border: 1px solid rgb(161, 159, 159);
+            line-height: 30px;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="box">
+        <div id="t" class="t">
+            <span>0</span>
+            <span>1</span>
+            <span>2</span>
+            <span>3</span>
+            <span>4</span>
+            <span>5</span>
+            <span>6</span>
+            <span>7</span>
+            <span>8</span>
+            <span id="s">=</span>
+            <span>+</span>
+            <span>-</span>
+        </div>
+
+        <div id="b" class="b"></div>
+    </div>
+
+
+    <script>
+        var t = document.getElementById('t');
+        var b = document.getElementById('b');
+        var c = false;
+        t.onclick = function (e) {
+            if (e.target.tagName == "SPAN") {
+                if (e.target.id == "s") {
+                    b.innerHTML = eval(b.innerHTML)
+                    c = true;
+                }
+                if (e.target.id != 's') {
+                    if (c == true) {
+                        b.innerHTML = ''
+                        c = false
+                    }
+                    
+                    b.innerHTML += e.target.innerHTML
+                }
+            }
+        }
+    </script>
+</body>
+
+</html>
